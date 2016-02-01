@@ -25,7 +25,7 @@ ENV_DIR=${3:-}
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 
 mkdir -p "$BUILD_DIR/.heroku/node/"
-cd $BUILD_DIR
+
 export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.extra_bin":$PATH
 
 # CF Common
@@ -34,6 +34,8 @@ export BUILDPACK_PATH=$BP_DIR
 
 LOG_FILE='/tmp/node-build-log.txt'
 echo "" > "$LOG_FILE"
+
+cd $BUILD_DIR/.heroku/node/
 
 wget https://nodejs.org/dist/v4.1.2/node-v4.1.2-linux-x64.tar.gz
 
