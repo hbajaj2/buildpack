@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir>
+
+set -e
+set -o pipefail   # don't ignore exit codes when piping output
+set -o nounset    # fail on unset variables
+unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
+
+mkdir .extra_bin
+
+cd .extra_bin
+wget http://10.113.140.187:8081/nexus/content/sites/binaries/wkhtmltopdf/wkhtmltopdf
+wget http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
+cd ../
+
+### Constants
+
+DEFAULT_CACHE="node_modules bower_components"
+
+### Configure directories
+
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
+
+mkdir -p "$BUILD_DIR/.heroku/node/"
+cd $BUILD_DIR
+export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.extra_bin":$PATH
+
+# CF Common
+export BUILDPACK_PATH=$BP_DIR
+source $BP_DIR/compile-extensions/lib/common
+# END CF Common
+LOG_FILE='/tmp/node-build-log.txt'
+echo "" > "$LOG_FILE"
+
+wget https://nodejs.org/dist/v4.1.2/node-v4.1.2-linux-x64.tar.gz
+
+tar -xvf node-v4.1.2-linux-x64.tar.gz
