@@ -44,7 +44,10 @@ wget --quiet https://nodejs.org/dist/v4.1.2/node-v4.1.2-linux-x64.tar.gz
 echo "Extracting node..."
 tar -xf node-v4.1.2-linux-x64.tar.gz --strip 1
 
-ls $BUILD_DIR/.heroku/node
+ls $BUILD_DIR/.heroku/node/bin/
 
 echo "PATH variable follows:"
 echo $PATH
+
+
+echo `which node`
