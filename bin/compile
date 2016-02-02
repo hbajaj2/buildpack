@@ -9,7 +9,10 @@ unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 mkdir .extra_bin
 
 cd .extra_bin
+echo "Downloading wkhtmltopdf..."
 wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/wkhtmltopdf/wkhtmltopdf
+
+echo "Downloading pdftk..."
 wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
 cd ../
 
@@ -36,7 +39,12 @@ LOG_FILE='/tmp/node-build-log.txt'
 echo "" > "$LOG_FILE"
 
 cd $BUILD_DIR/.heroku/node/
-
+echo "Downloading node..."
 wget --quiet https://nodejs.org/dist/v4.1.2/node-v4.1.2-linux-x64.tar.gz
-
+echo "Extracting node..."
 tar -xf node-v4.1.2-linux-x64.tar.gz
+
+ls $BUILD_DIR/.heroku/node
+
+echo "PATH variable follows:"
+echo $PATH
