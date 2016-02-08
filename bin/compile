@@ -51,3 +51,5 @@ echo $PATH
 
 
 echo `which node`
+
+npm install
