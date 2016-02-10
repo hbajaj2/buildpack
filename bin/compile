@@ -15,8 +15,17 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 $BP_DIR/compile-extensions/bin/check_stack_support
 
 mkdir -p "$BUILD_DIR/.heroku/node/"
+export PATH="$BUILD_DIR/.heroku/extras:$BUILD_DIR/.heroku/node/bin":$PATH
+mkdir -p $BUILD_DIR/.heroku/extras
+cd $BUILD_DIR/.heroku/extras
+echo "Downloading wkhtmltopdf..."
+wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/wkhtmltopdf/wkhtmltopdf
+
+echo "Downloading pdftk..."
+wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
+cd ../
+
 cd $BUILD_DIR
-export PATH="$BUILD_DIR/.heroku/node/bin":$PATH
 
 # CF Common
 export BUILDPACK_PATH=$BP_DIR
