@@ -152,6 +152,7 @@ cache_build | indent
 summarize_build() {
   cd $BUILD_DIR
   (npm ls --depth=0 | tail -n +2 || true) 2>/dev/null
+  npm test
 }
 
 header "Build succeeded!"
