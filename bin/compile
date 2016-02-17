@@ -25,14 +25,6 @@ echo "Downloading pdftk..."
 wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
 cd ../
 
-mkdir $BUILD_DIR/.fonts
-mkfontdir $BUILD_DIR/.fonts
-
-cp $BUILD_DIR/assets/css/*.ttf $BUILD_DIR/.fonts
-
-xset fp+ $BUILD_DIR/.fonts
-xset fp rehash
-
 cd $BUILD_DIR
 
 # CF Common
