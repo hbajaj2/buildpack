@@ -23,11 +23,12 @@ wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/wkhtmltopdf
 
 echo "Downloading pdftk..."
 wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
+
+chmod +x ./pdftk
+chmod +x ./wkhtmltopdf
+
+
 cd ../
-
-chmod +x pdftk
-chmod +x wkhtmltopdf
-
 cd $BUILD_DIR
 
 # CF Common
