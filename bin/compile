@@ -16,7 +16,7 @@ $BP_DIR/compile-extensions/bin/check_stack_support
 
 mkdir -p "$BUILD_DIR/.heroku/node/"
 export PATH="$BUILD_DIR/.heroku/extras:$BUILD_DIR/.heroku/node/bin":$PATH
-export LD_LIBRARY_PATH="$BUILD_DIR/.heroku/extras":$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="$BUILD_DIR/.heroku/extras"
 mkdir -p $BUILD_DIR/.heroku/extras
 cd $BUILD_DIR/.heroku/extras
 echo "Downloading wkhtmltopdf..."
