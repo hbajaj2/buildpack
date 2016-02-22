@@ -25,6 +25,9 @@ echo "Downloading pdftk..."
 wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
 cd ../
 
+chmod +x pdftk
+chmod +x wkhtmltopdf
+
 cd $BUILD_DIR
 
 # CF Common
