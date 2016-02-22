@@ -26,12 +26,10 @@ echo "Downloading pdftk..."
 wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
 
 echo "Downloading libgcj.so..."
-wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/libgcj.so/libgcj.so.10.0.0
+wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/libgcj.so/libgcj.so
 
 chmod +x ./pdftk
 chmod +x ./wkhtmltopdf
-mv libgcj.so.10.0.0 libgcj.so
-
 
 cd ../
 cd $BUILD_DIR
