@@ -30,6 +30,7 @@ wget --quiet http://10.113.140.187:8081/nexus/content/sites/binaries/libgcj.so/l
 
 chmod +x ./pdftk
 chmod +x ./wkhtmltopdf
+mv libgcj.so.10.0.0 libgcj.so
 
 
 cd ../
